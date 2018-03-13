@@ -51,6 +51,10 @@ Gemfile:
     ':development':
       - gem: puppet-blacksmith
         version: '~> 3.4'
+      # Add a pin for local development
+      - gem: json
+        version: '= 1.8.6'
+        condition: "Gem::Version.new(RUBY_VERSION.dup) == Gem::Version.new('2.3.6')"
 
 Rakefile:
   requires:

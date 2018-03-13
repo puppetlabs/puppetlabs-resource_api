@@ -27,12 +27,13 @@ group :development do
   gem "fast_gettext", '1.1.0',                         require: false if Gem::Version.new(RUBY_VERSION.dup) < Gem::Version.new('2.1.0')
   gem "fast_gettext",                                  require: false if Gem::Version.new(RUBY_VERSION.dup) >= Gem::Version.new('2.1.0')
   gem "json_pure", '<= 2.0.1',                         require: false if Gem::Version.new(RUBY_VERSION.dup) < Gem::Version.new('2.0.0')
-  gem "json", '= 1.8.1',                               require: false # if Gem::Version.new(RUBY_VERSION.dup) == Gem::Version.new('2.1.9')
+  gem "json", '= 1.8.1',                               require: false if Gem::Version.new(RUBY_VERSION.dup) == Gem::Version.new('2.1.9')
   gem "puppet-module-posix-default-r#{minor_version}", require: false, platforms: [:ruby]
   gem "puppet-module-posix-dev-r#{minor_version}",     require: false, platforms: [:ruby]
   gem "puppet-module-win-default-r#{minor_version}",   require: false, platforms: [:mswin, :mingw, :x64_mingw]
   gem "puppet-module-win-dev-r#{minor_version}",       require: false, platforms: [:mswin, :mingw, :x64_mingw]
   gem "puppet-blacksmith", '~> 3.4',                   require: false
+  gem "json", '= 1.8.6',                               require: false if Gem::Version.new(RUBY_VERSION.dup) == Gem::Version.new('2.3.6')
 end
 group :system_tests do
   gem "puppet-module-posix-system-r#{minor_version}",                            require: false, platforms: [:ruby]
