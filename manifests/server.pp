@@ -7,4 +7,8 @@
 # @example
 #   include resource_api::server
 class resource_api::server {
+  package { 'Resource API on the puppetserver':
+    name     => 'puppet-resource_api',
+    provider => puppetserver_gem,
+  }
 }
