@@ -43,7 +43,6 @@ Gemfile:
         from_env: BEAKER_ABS_VERSION
         version: '~> 0.1'
       - gem: beaker-pe
-      - gem: beaker-testmode_switcher
       - gem: beaker-hostgenerator
         from_env: BEAKER_HOSTGENERATOR_VERSION
       - gem: beaker-rspec

@@ -41,7 +41,6 @@ group :system_tests do
   gem "beaker", *location_for(ENV['BEAKER_VERSION'] || '~> 3.13')
   gem "beaker-abs", *location_for(ENV['BEAKER_ABS_VERSION'] || '~> 0.1')
   gem "beaker-pe",                                                               require: false
-  gem "beaker-testmode_switcher",                                                require: false
   gem "beaker-hostgenerator"
   gem "beaker-rspec"
 end
