@@ -54,7 +54,13 @@ Gemfile:
       - gem: json
         version: '= 1.8.6'
         condition: "Gem::Version.new(RUBY_VERSION.dup) == Gem::Version.new('2.3.6')"
+  optional:
+    ':development':
+      - gem: 'puppet-resource_api'
 
 Rakefile:
   requires:
     - puppet_blacksmith/rake_tasks
+
+spec/spec_helper.rb:
+  mock_with: ':rspec'

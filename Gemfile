@@ -34,6 +34,7 @@ group :development do
   gem "puppet-module-win-dev-r#{minor_version}",       require: false, platforms: [:mswin, :mingw, :x64_mingw]
   gem "puppet-blacksmith", '~> 3.4',                   require: false
   gem "json", '= 1.8.6',                               require: false if Gem::Version.new(RUBY_VERSION.dup) == Gem::Version.new('2.3.6')
+  gem "puppet-resource_api",                           require: false
 end
 group :system_tests do
   gem "puppet-module-posix-system-r#{minor_version}",                            require: false, platforms: [:ruby]
