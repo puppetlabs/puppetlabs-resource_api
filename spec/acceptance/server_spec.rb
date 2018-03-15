@@ -4,7 +4,7 @@ require 'spec_helper_acceptance'
 # rubocop:disable RSpec/InstanceVariable
 RSpec.context 'when applying resource_api::server' do
   before(:all) do
-    @manifest = 'include resource_api::server'
+    @manifest = 'include resource_api::agent, resource_api::server'
     @result = apply_manifest_on(master, @manifest, beaker_opts)
   end
 
@@ -32,7 +32,34 @@ RSpec.context 'when applying resource_api::server' do
     end
 
     it 'outputs the expected message' do
-      expect(result.stdout).to match %r{SUCCESS}
+      expect(@result.stdout).to match %r{SUCCESS}
+    end
+  end
+
+  context 'when running a full agent run' do
+    require 'master_manipulator'
+    include MasterManipulator::Site
+
+    before(:all) do
+      on(default, puppet('agent', '--test'), beaker_opts)
+      on(master, puppet('cert', 'sign', '--all'), beaker_opts)
+
+      @manifest = 'resource_api_test { "baz": ensure => present }'
+
+      environment_base_path = on(master, puppet('config', 'print', 'environmentpath')).stdout.rstrip
+      prod_env_site_pp_path = File.join(environment_base_path, 'production', 'manifests', 'site.pp')
+      site_pp = create_site_pp(master, manifest: @manifest)
+      inject_site_pp(master, prod_env_site_pp_path, site_pp)
+
+      @result = on(default, puppet('agent', '--test', '--environment production', '--detailed-exitcodes'), beaker_opts)
+    end
+
+    it 'runs without errors' do
+      expect(@result.exit_code).to eq 0
+    end
+
+    it 'outputs the expected message' do
+      expect(@result.stdout).to match %r{Creating 'baz'}
     end
   end
 end
