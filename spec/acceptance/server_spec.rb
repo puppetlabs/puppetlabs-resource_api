@@ -2,7 +2,7 @@ require 'spec_helper_acceptance'
 
 # allow @result to be used to cache expensive one-off agent runs
 # rubocop:disable RSpec/InstanceVariable
-RSpec.context 'when applying resource_api::server' do
+RSpec.context 'when applying resource_api::server', unless: ENV['PUPPET_INSTALL_TYPE'] == 'agent' do
   before(:all) do
     @manifest = 'include resource_api::agent, resource_api::server'
     @result = apply_manifest_on(master, @manifest, beaker_opts)
