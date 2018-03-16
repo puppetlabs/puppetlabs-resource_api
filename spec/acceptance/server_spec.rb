@@ -64,8 +64,8 @@ RSpec.context 'when applying resource_api::server', unless: ENV['PUPPET_INSTALL_
       @result = on(default, puppet('agent', '--test', '--environment production', '--detailed-exitcodes'), beaker_opts)
     end
 
-    it 'runs without errors' do
-      expect(@result.exit_code).to eq 0
+    it 'runs with changes and without errors' do
+      expect(@result.exit_code).to eq 2
     end
 
     it 'outputs the expected message' do
