@@ -61,6 +61,9 @@ RSpec.context 'when applying resource_api::server', unless: ENV['PUPPET_INSTALL_
       site_pp = create_site_pp(master, manifest: @manifest)
       inject_site_pp(master, prod_env_site_pp_path, site_pp)
 
+      # for testing
+      on(master, 'systemctl restart pe-puppetserver')
+
       @result = on(default, puppet('agent', '--test', '--environment production', '--detailed-exitcodes'), beaker_opts)
     end
 
