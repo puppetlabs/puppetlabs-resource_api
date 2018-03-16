@@ -32,7 +32,7 @@ RSpec.context 'when applying resource_api::server', unless: ENV['PUPPET_INSTALL_
 
   context 'when trying to load the resource_api from the puppet command' do
     before(:all) do
-      @manifest = 'warning(inline_template("<%= require \\"puppet/resource_api\\"; puts \\"SUCCESS\\" %>"))'
+      @manifest = 'notice(inline_template("<%= require \\"puppet/resource_api\\"; puts \\"SUCCESS\\" %>"))'
       @result = apply_manifest_on(master, @manifest, beaker_opts)
     end
 
