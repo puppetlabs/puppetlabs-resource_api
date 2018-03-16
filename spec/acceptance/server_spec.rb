@@ -41,9 +41,6 @@ RSpec.context 'when applying resource_api::server', unless: ENV['PUPPET_INSTALL_
     include MasterManipulator::Site
 
     before(:all) do
-      on(default, puppet('agent', '--test'), beaker_opts)
-      on(master, puppet('cert', 'sign', '--all'), beaker_opts)
-
       @manifest = 'resource_api_test { "baz": ensure => present }'
 
       environment_base_path = on(master, puppet('config', 'print', 'environmentpath')).stdout.rstrip
