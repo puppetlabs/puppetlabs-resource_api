@@ -12,12 +12,21 @@ RSpec.context 'when applying resource_api::agent' do
     expect(@result.exit_code).to eq 2
   end
 
+  it 'does not show errors' do
+    expect(@result.stderr).not_to match %r{warn|error}i
+  end
+
   context 'when applying a second time' do
     before(:all) do
       @result = apply_manifest_on(default, @manifest, beaker_opts)
     end
+
     it 'runs without changes or errors' do
       expect(@result.exit_code).to eq 0
+    end
+
+    it 'does not show errors' do
+      expect(@result.stderr).not_to match %r{warn|error}i
     end
   end
 
@@ -33,6 +42,10 @@ RSpec.context 'when applying resource_api::agent' do
 
     it 'outputs the expected message' do
       expect(@result.stdout).to match %r{SUCCESS}
+    end
+
+    it 'does not show errors' do
+      expect(@result.stderr).not_to match %r{warn|error}i
     end
   end
 end
