@@ -32,16 +32,16 @@ RSpec.context 'when applying resource_api::agent' do
 
   context 'when trying to load the resource_api from the puppet command' do
     before(:all) do
-      @manifest = 'notice(inline_template("<%= require \\"puppet/resource_api\\"; puts \\"SUCCESS\\" %>"))'
+      @manifest = 'resource_api_test { "baz": ensure => present }'
       @result = apply_manifest_on(default, @manifest, beaker_opts)
     end
 
-    it 'runs without errors' do
-      expect(@result.exit_code).to eq 0
+    it 'runs with changes and without errors' do
+      expect(@result.exit_code).to eq 2
     end
 
     it 'outputs the expected message' do
-      expect(@result.stdout).to match %r{SUCCESS}
+      expect(@result.stdout).to match %r{Creating 'baz'}
     end
 
     it 'does not show errors' do

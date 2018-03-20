@@ -4,7 +4,17 @@ require 'spec_helper_acceptance'
 # rubocop:disable RSpec/InstanceVariable
 RSpec.context 'when applying resource_api::server', unless: ENV['PUPPET_INSTALL_TYPE'] == 'agent' do
   before(:all) do
-    @manifest = 'include resource_api::agent, resource_api::server'
+    @manifest = <<MANIFEST
+include resource_api::agent, resource_api::server
+
+# cloned from https://github.com/puppetlabs/puppetlabs-puppet_enterprise/blob/a82d3adafcf1dfd13f1c338032f325d80fa58eda/manifests/trapperkeeper/pe_service.pp#L10-L17
+service { 'pe-puppetserver':
+    ensure     => running,
+    hasrestart => true,
+    restart    => "service pe-puppetserver reload",
+}
+MANIFEST
+
     @result = apply_manifest_on(master, @manifest, beaker_opts)
   end
 
@@ -32,16 +42,16 @@ RSpec.context 'when applying resource_api::server', unless: ENV['PUPPET_INSTALL_
 
   context 'when trying to load the resource_api from the puppet command' do
     before(:all) do
-      @manifest = 'notice(inline_template("<%= require \\"puppet/resource_api\\"; puts \\"SUCCESS\\" %>"))'
+      @manifest = 'resource_api_test { "baz": ensure => present }'
       @result = apply_manifest_on(master, @manifest, beaker_opts)
     end
 
-    it 'runs without errors' do
-      expect(@result.exit_code).to eq 0
+    it 'runs with changes and without errors' do
+      expect(@result.exit_code).to eq 2
     end
 
     it 'outputs the expected message' do
-      expect(@result.stdout).to match %r{SUCCESS}
+      expect(@result.stdout).to match %r{Creating 'baz'}
     end
 
     it 'does not show errors' do
@@ -60,9 +70,6 @@ RSpec.context 'when applying resource_api::server', unless: ENV['PUPPET_INSTALL_
       prod_env_site_pp_path = File.join(environment_base_path, 'production', 'manifests', 'site.pp')
       site_pp = create_site_pp(master, manifest: @manifest)
       inject_site_pp(master, prod_env_site_pp_path, site_pp)
-
-      # for testing
-      on(master, 'systemctl restart pe-puppetserver')
 
       @result = on(default, puppet('agent', '--test', '--environment production', '--detailed-exitcodes'), beaker_opts)
     end
