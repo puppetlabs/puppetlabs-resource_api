@@ -31,6 +31,6 @@ RSpec.configure do |c|
   c.before :each do
     # set to strictest setting for testing
     # by default Puppet runs at warning level
-    Puppet.settings[:strict] = :warning
+    Puppet.settings[:strict] = :error
   end
 end

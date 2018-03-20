@@ -64,3 +64,4 @@ Rakefile:
 
 spec/spec_helper.rb:
   mock_with: ':rspec'
+  strict_level: ':error'
