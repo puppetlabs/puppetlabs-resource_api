@@ -13,7 +13,7 @@ RSpec.context 'when applying resource_api::agent' do
   end
 
   it 'does not show errors' do
-    expect(@result.stderr).not_to match %r{warn|error}i
+    expect(@result.stderr).not_to match %r{error}i
   end
 
   context 'when applying a second time' do
@@ -26,7 +26,7 @@ RSpec.context 'when applying resource_api::agent' do
     end
 
     it 'does not show errors' do
-      expect(@result.stderr).not_to match %r{warn|error}i
+      expect(@result.stderr).not_to match %r{error}i
     end
   end
 
@@ -45,7 +45,7 @@ RSpec.context 'when applying resource_api::agent' do
     end
 
     it 'does not show errors' do
-      expect(@result.stderr).not_to match %r{warn|error}i
+      expect(@result.stderr).not_to match %r{error}i
     end
   end
 end
