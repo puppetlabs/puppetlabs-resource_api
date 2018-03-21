@@ -40,6 +40,10 @@ To be able to use Resource API providers, two things need to happen:
 
 * on each puppet agent that needs to apply Resource API providers, classify or apply the `resource_api::agent` class.
 
+You can use the `$api_version` parameter to select which version of the Resource API gem gets installed.
+
+You can use the `$puppetserver_service` parameter on the `resource_api::server` class to specify a non-default `puppetserver` service resource, if you're not using the standard ones.
+
 ## Development
 
 Please submit any issues, or contributions on https://github.com/puppetlabs/puppetlabs-resource_api
