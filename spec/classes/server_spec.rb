@@ -10,6 +10,7 @@ describe 'resource_api::server' do
         let(:pre_cond) { 'service { "pe-puppetserver": }' }
 
         it { is_expected.to compile }
+        it { is_expected.to contain_package('Resource API on the puppetserver').with(name: 'puppet-resource_api', ensure: :latest) }
         it { is_expected.to contain_package('Resource API on the puppetserver').that_notifies('Service[pe-puppetserver]') }
       end
 
@@ -17,6 +18,7 @@ describe 'resource_api::server' do
         let(:pre_cond) { 'service { "puppetserver": }' }
 
         it { is_expected.to compile }
+        it { is_expected.to contain_package('Resource API on the puppetserver').with(ensure: :latest) }
         it { is_expected.to contain_package('Resource API on the puppetserver').that_notifies('Service[puppetserver]') }
       end
 
@@ -25,6 +27,7 @@ describe 'resource_api::server' do
         let(:pre_cond) { 'service { "custom puppetserver": }' }
 
         it { is_expected.to compile }
+        it { is_expected.to contain_package('Resource API on the puppetserver').with(ensure: :latest) }
         it { is_expected.to contain_package('Resource API on the puppetserver').that_notifies('Service[custom puppetserver]') }
       end
     end

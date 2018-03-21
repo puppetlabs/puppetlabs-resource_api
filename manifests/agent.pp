@@ -8,6 +8,7 @@
 #   include resource_api::agent
 class resource_api::agent {
   package { 'Resource API on the puppet AIO':
+    ensure   => 'latest',
     name     => 'puppet-resource_api',
     provider => puppet_gem,
   }
