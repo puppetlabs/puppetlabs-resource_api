@@ -1,7 +1,7 @@
 {
   "name": "puppetlabs-resource_api",
-  "version": "0.1.0",
-  "author": "David Schmitt <david.schmitt@puppetlabs.com>",
+  "version": "0.2.0",
+  "author": "David Schmitt <david.schmitt@puppet.com>",
   "summary": "deploy the puppet-resource_api gem across your infrastructure",
   "license": "Apache-2.0",
   "source": "https://github.com/puppetlabs/puppetlabs-resource_api",
