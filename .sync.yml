@@ -1,4 +1,9 @@
 ---
+.pdkignore:
+  paths:
+    - lib/puppet/provider/resource_api_test/resource_api_test.rb
+    - lib/puppet/type/resource_api_test.rb
+
 .travis.yml:
   docker_sets:
     - set: docker/centos-7
