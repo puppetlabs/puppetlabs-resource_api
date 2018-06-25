@@ -8,7 +8,10 @@
 #   include resource_api::server
 class resource_api::server(
   String $api_version = 'latest',
-  Type[Resource] $puppetserver_service = $facts['pe_server_version'] ? { /./ => Service['pe-puppetserver'], default => Service['puppetserver'] },
+  Type[Resource] $puppetserver_service = $facts['pe_server_version'] ? {
+    /./     => Service['pe-puppetserver'],
+    default => Service['puppetserver']
+  },
 ) {
   package { 'Resource API on the puppetserver':
     ensure   => $api_version,
