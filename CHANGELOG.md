@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [0.3.0](https://github.com/puppetlabs/puppetlabs-resource_api/tree/0.3.0) (2018-06-25)
+
+[Full Changelog](https://github.com/puppetlabs/puppetlabs-resource_api/compare/0.2.0...0.3.0)
+
+**Fixed bugs:**
+
+-  \(PDK-1013\) do not pack test files into the module; update to newest PDK [\#5](https://github.com/puppetlabs/puppetlabs-resource_api/pull/5) ([DavidS](https://github.com/DavidS))
+
+**Merged pull requests:**
+
+- Release prep for v0.2.0 mergeback [\#4](https://github.com/puppetlabs/puppetlabs-resource_api/pull/4) ([DavidS](https://github.com/DavidS))
+
 ## [0.2.0](https://github.com/puppetlabs/puppetlabs-resource_api/tree/0.2.0) (2018-03-21)
 
 [Full Changelog](https://github.com/puppetlabs/puppetlabs-resource_api/compare/0.1.0...0.2.0)
