@@ -3,7 +3,7 @@ require 'beaker/module_install_helper'
 require 'beaker/puppet_install_helper'
 
 def beaker_opts
-  { debug: true, trace: true, expect_failures: true, acceptable_exit_codes: (0...256) }
+  { debug: false, trace: true, expect_failures: true, acceptable_exit_codes: (0...256) }
   # { expect_failures: true, acceptable_exit_codes: (0...256) }
 end
 
