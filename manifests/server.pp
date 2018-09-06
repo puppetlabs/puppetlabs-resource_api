@@ -13,11 +13,15 @@ class resource_api::server(
     default => Service['puppetserver']
   },
 ) {
-  package { 'Resource API on the puppetserver':
-    ensure   => $api_version,
-    name     => 'puppet-resource_api',
-    provider => puppetserver_gem,
-  }
 
-  Package['Resource API on the puppetserver'] ~> $puppetserver_service
+  # since PE and puppet are bundled together, it is enough to only check for the puppet version here
+  if versioncmp($facts['puppetversion'], '6.0.0') < 0 {
+    package { 'Resource API on the puppetserver':
+      ensure   => $api_version,
+      name     => 'puppet-resource_api',
+      provider => puppetserver_gem,
+    }
+
+    Package['Resource API on the puppetserver'] ~> $puppetserver_service
+  }
 }
