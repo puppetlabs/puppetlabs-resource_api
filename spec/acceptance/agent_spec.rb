@@ -9,7 +9,13 @@ RSpec.context 'when applying resource_api::agent' do
   end
 
   it 'runs with changes and without errors' do
+    skip 'on puppet 6, no changes expected' unless puppet6?
     expect(@result.exit_code).to eq 2
+  end
+
+  it 'runs with no changes and without errors' do
+    skip 'not on puppet 6, changes expected' if puppet6?
+    expect(@result.exit_code).to eq 0
   end
 
   it 'does not show errors' do
