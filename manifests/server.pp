@@ -1,11 +1,15 @@
 # resource_api::server
 #
-# A description of what this class does
+# Install dependencies onto the server
 #
-# @summary A short summary of the purpose of this class
+# @summary  This class will install the Resource API gem onto the server and perform
+#           a reboot of the server.
 #
-# @example
+# @example Declaring the class
 #   include resource_api::server
+#
+# @param [String] api_version A specific release version of Resource API to install
+# @param [Type[Resource]] puppetserver_service  The name of the puppetserver service to reboot
 class resource_api::server(
   String $api_version = 'latest',
   Type[Resource] $puppetserver_service = $facts['pe_server_version'] ? {

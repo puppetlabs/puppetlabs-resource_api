@@ -44,6 +44,16 @@ You can use the `$api_version` parameter to select which version of the Resource
 
 You can use the `$puppetserver_service` parameter on the `resource_api::server` class to specify a non-default `puppetserver` service resource, if you're not using the standard ones.
 
+## Reference
+
+See [REFERENCE.md](https://github.com/puppetlabs/puppetlabs-resource_api/blob/master/REFERENCE.md)
+
 ## Development
+
+Execute the Puppet Strings task to generate the latest [REFERENCE.md](https://github.com/puppetlabs/puppetlabs-resource_api/blob/master/REFERENCE.md)
+
+ ``` bash
+ bundle exec rake strings:generate[manifests/*.pp,,,,,REFERENCE.md,true]
+ ```
 
 Please submit any issues, or contributions on https://github.com/puppetlabs/puppetlabs-resource_api
