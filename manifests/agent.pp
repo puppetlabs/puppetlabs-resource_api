@@ -1,11 +1,13 @@
 # resource_api::agent
 #
-# A description of what this class does
+# Install dependencies onto the agent
 #
-# @summary A short summary of the purpose of this class
+# @summary This class will install the Resource API gem onto the agent
 #
-# @example
+# @example  Declaring the class
 #   include resource_api::agent
+#
+# @param [String] api_version A specific release version of Resource API to install
 class resource_api::agent(String $api_version = 'latest') {
   if versioncmp($facts['puppetversion'], '6.0.0') < 0 {
     package { 'Resource API on the puppet AIO':

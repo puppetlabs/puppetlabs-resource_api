@@ -3,7 +3,7 @@ require 'puppet/resource_api'
 Puppet::ResourceApi.register_type(
   name: 'resource_api_test',
   docs: <<-EOS,
-      This type provides Puppet with the capabilities to manage ...
+      This is a type used for testing the Resource API Gem
     EOS
   features: [],
   attributes:   {
