@@ -4,3 +4,6 @@
 fixtures:
   forge_modules:
     puppetserver_gem: "puppetlabs/puppetserver_gem"
+    augeas_core:
+      repo: "puppetlabs/augeas_core"
+      puppet_version: ">= 6.0.0"
