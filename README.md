@@ -1,4 +1,3 @@
-
 # resource_api
 
 #### Table of Contents
