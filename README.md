@@ -1,47 +1,43 @@
+
 # resource_api
 
 #### Table of Contents
 
-1. [Description](#description)
-2. [Setup - The basics of getting started with resource_api](#setup)
+1. [Module Description - What the module does and why it is useful](#module-description)
+1. [Setup - The basics of getting started with resource_api](#setup)
     * [What resource_api affects](#what-resource_api-affects)
     * [Setup requirements](#setup-requirements)
     * [Beginning with resource_api](#beginning-with-resource_api)
-3. [Usage - Configuration options and additional functionality](#usage)
-4. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
-5. [Limitations - OS compatibility, etc.](#limitations)
-6. [Development - Guide for contributing to the module](#development)
+1. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
+1. [Development - Guide for contributing to the module](#development)
 
-## Description
+## Module Description
 
-This module installs the Resource API gem into your PE, puppetserver and
-puppet-agent installations. This is necessary to use any type and provider that's implemented using the Resource API.
+This module installs the Puppet Resource API gem into a puppet agent and pe-pupetserver or puppetserver service. This is necessary to use any type or provider that is implemented using the Puppet Resource API.
 
 ## Setup
 
 ### What resource_api affects
 
-The Resource API will get installed into your PE or puppetserver installation
-using the puppetserver_gem utility. To activate it a reload of the puppetserver
-is necessary. In most cases this should work automatically and cause little to
-no interruption to your service.
+The Puppet Resource API gem will be installed into a puppet agent using the `puppet_gem` provider, and into a puppetserver service using the `puppetserver_gem` provider. To activate the gem, a reload of the puppetserver service is necessary. In most cases, this should happen automatically and cause little to no interruption to service.
 
 ### Setup Requirements
 
-The Resource API is only compatible with puppet 4.7 and later. There are no
-further specific requirements.
+The Puppet Resource API is only compatible with Puppet 4.7 and later.
+There are no further specific requirements.
 
 ### Beginning with resource_api
 
-To be able to use Resource API providers, two things need to happen:
+To install dependencies of the Puppet Resource API:
 
-* on each puppetserver or PE master that needs to process Resource API providers, classify or apply the `resource_api::server` class.
+1. Classify or apply the `resource_api` class on each master (master of masters, and if present, compile masters and replica master) that needs to process Puppet Resource API types and providers.
+1. Classify or apply the `resource_api` class on each puppet agent that needs to apply Puppet Resource API types and providers.
 
-* on each puppet agent that needs to apply Resource API providers, classify or apply the `resource_api::agent` class.
+To specify the version of the Puppet Resource API gem to be installed, instead use the `resource_api::install::agent` class and its `$api_version` parameter.
 
-You can use the `$api_version` parameter to select which version of the Resource API gem gets installed.
+To specify a non-default `puppetserver` service resource (if you're not using the standard service) instead use the `resource_api::install::master` class and its `$puppetserver_service` parameter.
 
-You can use the `$puppetserver_service` parameter on the `resource_api::server` class to specify a non-default `puppetserver` service resource, if you're not using the standard ones.
+Run `puppet agent -t` on the master(s) before using the Puppet Resource API on the agent(s).
 
 ## Reference
 
