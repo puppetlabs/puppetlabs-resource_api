@@ -10,6 +10,9 @@
 #
 # @param [String] api_version A specific release version of Resource API to install
 # @param [Type[Resource]] puppetserver_service  The name of the puppetserver service to reboot
+#
+# Deprecated by resource_api::install::master
+
 class resource_api::server(
   String $api_version = 'latest',
   Type[Resource] $puppetserver_service = $facts['pe_server_version'] ? {
