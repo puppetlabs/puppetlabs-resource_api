@@ -1,17 +1,8 @@
-# Install resource_api module dependencies on a puppet agent or master.
+# @summary This class will install dependencies of the Resource API
+#          into the puppet agent, and/or the puppetserver service.
 #
-# A proxy agent needs to be classified with this class before it can use
-# device modules that use the resource_api.
-#
-# Every master: master of masters, and if present, compile masters and replica
-# needs to be classified with this class before it can compile catalogs for
-# device modules that use the resource_api.
-#
-# @summary Install dependencies into the puppet agent and puppetserver service
-#
-# @example
+# @example Declaring the class
 #   include resource_api::install
-
 class resource_api::install {
 
   include resource_api::install::agent
@@ -21,3 +12,10 @@ class resource_api::install {
   }
 
 }
+
+# A proxy agent needs to be classified with this class before it can use
+# device modules that use the Resource API.
+#
+# Every master: master of masters, and if present, compile masters and replica
+# needs to be classified with this class before it can compile catalogs for
+# device modules that use the Resource API.
