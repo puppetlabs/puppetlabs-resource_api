@@ -1,4 +1,4 @@
-# @summary This class will install dependencies of the Resource API
+# @summary This class installs dependencies of the Resource API
 #          into the puppet agent, and/or the puppetserver service.
 #
 # @example Declaring the class

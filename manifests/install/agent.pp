@@ -1,4 +1,4 @@
-# @summary This class will install the Resource API gem into puppet agent
+# @summary This class installs the Resource API gem into puppet agent
 #
 # @example Declaring the class
 #   include resource_api::install::agent
@@ -18,4 +18,3 @@ class resource_api::install::agent(
   }
 
 }
-

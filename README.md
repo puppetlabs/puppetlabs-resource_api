@@ -33,9 +33,9 @@ To install dependencies of the Puppet Resource API:
 1. Classify or apply the `resource_api` class on each master (master of masters, and if present, compile masters and replica master) that needs to process Puppet Resource API types and providers.
 1. Classify or apply the `resource_api` class on each puppet agent that needs to apply Puppet Resource API types and providers.
 
-To specify the version of the Puppet Resource API gem you want to install, use the `resource_api::install::agent` class and its `$api_version` parameter.
+To specify the version of the Puppet Resource API gem you want to install, use the `$api_version` parameter with the `resource_api::install::master` and `resource_api::install::agent` classes instead of using the `resource_api` class.
 
-To specify a non-default `puppetserver` service resource (if you're not using the standard service) use the `resource_api::install::master` class and its `$puppetserver_service` parameter.
+To specify a non-default `puppetserver` service resource (if you're not using the standard service) use the `$puppetserver_service` parameter with the  `resource_api::install::master` class instead of using the `resource_api` class.
 
 Run `puppet agent -t` on the master(s) before using the Puppet Resource API on the agent(s).
 

@@ -1,5 +1,5 @@
-# @summary This class will install the Resource API gem into puppetserver,
-#          and restart the puppetserver service to activate.
+# @summary This class installs the Resource API gem into puppetserver,
+#          and restarts the puppetserver service to activate.
 #
 # @example Declaring the class
 #   include resource_api::install::master
@@ -18,16 +18,12 @@ class resource_api::install::master(
 ) {
 
   # Since PE and Puppet are bundled together, it is enough to only check for the puppet version here.
-
   if versioncmp($facts['puppetversion'], '6.0.0') < 0 {
     package { 'Resource API on the puppetserver':
       ensure   => $api_version,
       name     => 'puppet-resource_api',
       provider => puppetserver_gem,
     }
-
     Package['Resource API on the puppetserver'] ~> $puppetserver_service
   }
-
 }
-
