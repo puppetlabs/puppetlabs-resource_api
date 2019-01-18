@@ -1,3 +1,5 @@
+require 'beaker-pe'
+require 'beaker-puppet'
 require 'beaker-rspec'
 require 'beaker/module_install_helper'
 require 'beaker/puppet_install_helper'
@@ -17,6 +19,7 @@ RSpec.configure do |c|
   c.before :suite do
     unless ENV['BEAKER_provision'] == 'no'
       run_puppet_install_helper
+      configure_type_defaults_on(hosts)
       install_module_on(hosts_as('master'))
       install_module_on(hosts_as('default'))
       install_module_dependencies_on(hosts)
