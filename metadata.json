@@ -1,6 +1,6 @@
 {
   "name": "puppetlabs-resource_api",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "author": "David Schmitt <david.schmitt@puppet.com>",
   "summary": "deploy the puppet-resource_api gem across your infrastructure",
   "license": "Apache-2.0",
@@ -85,10 +85,10 @@
   "requirements": [
     {
       "name": "puppet",
-      "version_requirement": ">= 4.7.0 < 6.0.0"
+      "version_requirement": ">= 4.7.0 < 7.0.0"
     }
   ],
-  "pdk-version": "1.7.0.pre",
+  "pdk-version": "1.8.0.pre (2)",
   "template-url": "https://github.com/puppetlabs/pdk-templates.git",
-  "template-ref": "heads/master-0-g473cd94"
+  "template-ref": "heads/master-0-g6a90b42"
 }

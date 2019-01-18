@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [1.0.0](https://github.com/puppetlabs/puppetlabs-resource_api/tree/1.0.0) (2018-09-12)
+
+[Full Changelog](https://github.com/puppetlabs/puppetlabs-resource_api/compare/0.3.0...1.0.0)
+
+**Implemented enhancements:**
+
+- Confirm Debian 9 platform support in metadata.json [\#8](https://github.com/puppetlabs/puppetlabs-resource_api/pull/8) ([DavidS](https://github.com/DavidS))
+
+**Fixed bugs:**
+
+- \(PDK-881\) install Resource API only on puppet versions that need it [\#9](https://github.com/puppetlabs/puppetlabs-resource_api/pull/9) ([DavidS](https://github.com/DavidS))
+- Disable extensive debugging on acceptance testing [\#7](https://github.com/puppetlabs/puppetlabs-resource_api/pull/7) ([DavidS](https://github.com/DavidS))
+
+**Merged pull requests:**
+
+- \(PDK-1049\) Render REFERENCE.md on release [\#11](https://github.com/puppetlabs/puppetlabs-resource_api/pull/11) ([da-ar](https://github.com/da-ar))
+- \(PDK-881\) update acceptance tests to match new behaviour on puppet6 [\#10](https://github.com/puppetlabs/puppetlabs-resource_api/pull/10) ([DavidS](https://github.com/DavidS))
+- \(MODULES-7349\) Release prep 0.3.0 [\#6](https://github.com/puppetlabs/puppetlabs-resource_api/pull/6) ([DavidS](https://github.com/DavidS))
+
 ## [0.3.0](https://github.com/puppetlabs/puppetlabs-resource_api/tree/0.3.0) (2018-06-25)
 
 [Full Changelog](https://github.com/puppetlabs/puppetlabs-resource_api/compare/0.2.0...0.3.0)
