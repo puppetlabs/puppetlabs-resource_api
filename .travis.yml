@@ -49,6 +49,8 @@ branches:
     - release
 notifications:
   email: false
+  slack:
+    secure: YeM6B8pYLnVloiKkwtKx3RtqmXJbRlOAeMbVP47aeFC2fzp+8G79Nug0UjOdfx+QeU4uOSLk15pbk3k3fbaAwiH81Yo6FYChgEO8I/tls6+onZdGMwTlE10XEXuVhq1CYo4ITYOoCbzhtkEM5ptdPzooNdC7mUCsNh5bvX5gOaefIsaPqpcfnHZ/DdgnGrnK+urJpnCjKyyNKasPwOtAsj/wCPMd0dAXV8zmdGjI7suJXoGE9+SSvY+mWrumk4eIYaZxa/Nij3W1eMG9zpsrqSIxUoWYPm9ctXpQXrnOWNS4Ig/gIfdHKW5xWgYkzqKy//YU5rBZzyc/JYIwKXGLKZyl7ba7tBD2oEUgM/2l1d6E4PIlUugmes9ODZtt4ttpKJXflXxpBtdFuTDZyaU9jWwnySjPpuXNNkpnvr6t9ADkfQQ48gOlDVZVKrcwHdV8A6N8P29e9TTrP8ztYIZYO+Rxe4L0nuIEtlZhM6QTcLh02zzf5Q7qtL/ks7w3bI37OknqcVxi55dHFXOGFLELbkAuLS8h+ze+53grxViyBTBaaHp2nCW6xP3F9YXZ4mpSBlsbhJhPBYZZw48mkhQqlkgmiUskX70/+ON46wBCeJZPhZSnHyximPS/5dfVJsVlLJy/2LXz6ytN31Nrv+N/NiQCK1Tvy+msMBZj5/T4G/o=
 deploy:
   provider: puppetforge
   user: puppet
