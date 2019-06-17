@@ -5,17 +5,35 @@
 
 **Classes**
 
-* [`resource_api::agent`](#resource_apiagent): This class will install the Resource API gem onto the agent
-* [`resource_api::server`](#resource_apiserver): This class will install the Resource API gem onto the server and perform
-a reboot of the server.
+* [`resource_api`](#resource_api): This class calls the resource_api::install class.
+* [`resource_api::agent`](#resource_apiagent): This class installs the Resource API gem into puppet agent
+* [`resource_api::install`](#resource_apiinstall): This class installs dependencies of the Resource API
+into the puppet agent, and/or the puppetserver service.
+* [`resource_api::install::agent`](#resource_apiinstallagent): This class installs the Resource API gem into puppet agent
+* [`resource_api::install::master`](#resource_apiinstallmaster): This class installs the Resource API gem into puppetserver,
+and restarts the puppetserver service to activate.
+* [`resource_api::server`](#resource_apiserver): This class installs the Resource API gem into puppetserver,
+and restarts the puppetserver service to activate.
 
 ## Classes
 
+### resource_api
+
+This class calls the resource_api::install class.
+
+#### Examples
+
+##### Declaring the class
+
+```puppet
+include resource_api
+```
+
 ### resource_api::agent
 
-resource_api::agent
+This class installs the Resource API gem into puppet agent
 
-Install dependencies onto the agent
+* **Note** Deprecated, use resource_api::install::agent
 
 #### Examples
 
@@ -37,11 +55,82 @@ A specific release version of Resource API to install
 
 Default value: 'latest'
 
+### resource_api::install
+
+This class installs dependencies of the Resource API
+into the puppet agent, and/or the puppetserver service.
+
+#### Examples
+
+##### Declaring the class
+
+```puppet
+include resource_api::install
+```
+
+### resource_api::install::agent
+
+This class installs the Resource API gem into puppet agent
+
+#### Examples
+
+##### Declaring the class
+
+```puppet
+include resource_api::install::agent
+```
+
+#### Parameters
+
+The following parameters are available in the `resource_api::install::agent` class.
+
+##### `api_version`
+
+Data type: `String`
+
+A specific release version of Resource API to install
+
+Default value: 'latest'
+
+### resource_api::install::master
+
+This class installs the Resource API gem into puppetserver,
+and restarts the puppetserver service to activate.
+
+#### Examples
+
+##### Declaring the class
+
+```puppet
+include resource_api::install::master
+```
+
+#### Parameters
+
+The following parameters are available in the `resource_api::install::master` class.
+
+##### `api_version`
+
+Data type: `String`
+
+A specific release version of Resource API to install
+
+Default value: 'latest'
+
+##### `puppetserver_service`
+
+Data type: `Type[Resource]`
+
+The name of the puppetserver service to restart
+
+Default value: $facts['pe_server_version']
+
 ### resource_api::server
 
-resource_api::server
+This class installs the Resource API gem into puppetserver,
+and restarts the puppetserver service to activate.
 
-Install dependencies onto the server
+* **Note** Deprecated, use resource_api::install::server
 
 #### Examples
 

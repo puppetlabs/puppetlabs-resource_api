@@ -1,13 +1,14 @@
 # @summary This class installs the Resource API gem into puppet agent
 #
 # @example Declaring the class
-#   include resource_api::agent
+#   include resource_api::install::agent
 #
-# @param [String] api_version
-#   A specific release version of Resource API to install
-#
-# @note Deprecated, use resource_api::install::agent
-class resource_api::agent(String $api_version = 'latest') {
+# @param [String]
+#    api_version A specific release version of Resource API to install
+class resource_api::install::agent(
+  String $api_version = 'latest',
+) {
+
   if versioncmp($facts['puppetversion'], '6.0.0') < 0 {
     package { 'Resource API on the puppet AIO':
       ensure   => $api_version,
@@ -15,4 +16,5 @@ class resource_api::agent(String $api_version = 'latest') {
       provider => puppet_gem,
     }
   }
+
 }
