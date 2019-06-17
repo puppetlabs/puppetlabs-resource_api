@@ -2,52 +2,50 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v1.1.0](https://github.com/puppetlabs/puppetlabs-resource_api/tree/v1.1.0) (2019-06-17)
+
+[Full Changelog](https://github.com/puppetlabs/puppetlabs-resource_api/compare/1.0.0...v1.1.0)
+
+### Added
+
+- \(FM-7653\) implement a standardized install class [\#16](https://github.com/puppetlabs/puppetlabs-resource_api/pull/16) ([tkishel](https://github.com/tkishel))
+
+### Fixed
+
+- Updates for Jenkins CI [\#17](https://github.com/puppetlabs/puppetlabs-resource_api/pull/17) ([da-ar](https://github.com/da-ar))
+
 ## [1.0.0](https://github.com/puppetlabs/puppetlabs-resource_api/tree/1.0.0) (2018-09-12)
 
 [Full Changelog](https://github.com/puppetlabs/puppetlabs-resource_api/compare/0.3.0...1.0.0)
 
-**Implemented enhancements:**
+### Added
 
 - Confirm Debian 9 platform support in metadata.json [\#8](https://github.com/puppetlabs/puppetlabs-resource_api/pull/8) ([DavidS](https://github.com/DavidS))
 
-**Fixed bugs:**
+### Fixed
 
 - \(PDK-881\) install Resource API only on puppet versions that need it [\#9](https://github.com/puppetlabs/puppetlabs-resource_api/pull/9) ([DavidS](https://github.com/DavidS))
 - Disable extensive debugging on acceptance testing [\#7](https://github.com/puppetlabs/puppetlabs-resource_api/pull/7) ([DavidS](https://github.com/DavidS))
-
-**Merged pull requests:**
-
-- \(PDK-1049\) Render REFERENCE.md on release [\#11](https://github.com/puppetlabs/puppetlabs-resource_api/pull/11) ([da-ar](https://github.com/da-ar))
-- \(PDK-881\) update acceptance tests to match new behaviour on puppet6 [\#10](https://github.com/puppetlabs/puppetlabs-resource_api/pull/10) ([DavidS](https://github.com/DavidS))
-- \(MODULES-7349\) Release prep 0.3.0 [\#6](https://github.com/puppetlabs/puppetlabs-resource_api/pull/6) ([DavidS](https://github.com/DavidS))
 
 ## [0.3.0](https://github.com/puppetlabs/puppetlabs-resource_api/tree/0.3.0) (2018-06-25)
 
 [Full Changelog](https://github.com/puppetlabs/puppetlabs-resource_api/compare/0.2.0...0.3.0)
 
-**Fixed bugs:**
+### Fixed
 
 -  \(PDK-1013\) do not pack test files into the module; update to newest PDK [\#5](https://github.com/puppetlabs/puppetlabs-resource_api/pull/5) ([DavidS](https://github.com/DavidS))
-
-**Merged pull requests:**
-
-- Release prep for v0.2.0 mergeback [\#4](https://github.com/puppetlabs/puppetlabs-resource_api/pull/4) ([DavidS](https://github.com/DavidS))
 
 ## [0.2.0](https://github.com/puppetlabs/puppetlabs-resource_api/tree/0.2.0) (2018-03-21)
 
 [Full Changelog](https://github.com/puppetlabs/puppetlabs-resource_api/compare/0.1.0...0.2.0)
 
-**Implemented enhancements:**
+### Added
 
 - Allow passing `$api\_version` to select which gem version to install [\#2](https://github.com/puppetlabs/puppetlabs-resource_api/pull/2) ([DavidS](https://github.com/DavidS))
 
-**Fixed bugs:**
+### Fixed
 
 - Do not check for warnings agent-side [\#3](https://github.com/puppetlabs/puppetlabs-resource_api/pull/3) ([DavidS](https://github.com/DavidS))
-
-**Merged pull requests:**
-
-- Update README [\#1](https://github.com/puppetlabs/puppetlabs-resource_api/pull/1) ([DavidS](https://github.com/DavidS))
 
 ## [0.1.0](https://github.com/puppetlabs/puppetlabs-resource_api/tree/0.1.0) (2018-03-20)
 

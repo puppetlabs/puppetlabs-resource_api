@@ -48,7 +48,7 @@ See [REFERENCE.md](https://github.com/puppetlabs/puppetlabs-resource_api/blob/ma
 Execute the Puppet Strings task to generate the latest [REFERENCE.md](https://github.com/puppetlabs/puppetlabs-resource_api/blob/master/REFERENCE.md)
 
  ``` bash
- bundle exec rake strings:generate[manifests/*.pp,,,,,REFERENCE.md,true]
+ bundle exec rake 'strings:generate[manifests/**/*.pp,,,,,REFERENCE.md,true]'
  ```
 
 Please submit any issues, or contributions on https://github.com/puppetlabs/puppetlabs-resource_api
