@@ -13,7 +13,7 @@
 
 ## Module Description
 
-This module installs the Puppet Resource API gem into a puppet agent and pe-pupetserver or puppetserver service. This is necessary to use any type or provider that is implemented using the Puppet Resource API.
+This module installs the Puppet Resource API gem into a puppet agent and pe-pupetserver or puppetserver service. This is necessary to use any type or provider that is implemented using the Puppet Resource API. Since Puppet 6.0, the Resource API ships with the agent. On these installations, the module automatically does nothing, while still providing the same interface to downstream modules to make switching back and forth seamless.
 
 ## Setup
 
