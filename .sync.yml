@@ -1,4 +1,6 @@
 ---
+".gitlab-ci.yml":
+  delete: true
 ".pdkignore":
   paths:
   - lib/puppet/provider/resource_api_test/resource_api_test.rb
