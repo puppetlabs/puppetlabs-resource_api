@@ -6,6 +6,8 @@
   - lib/puppet/provider/resource_api_test/resource_api_test.rb
   - lib/puppet/type/resource_api_test.rb
 ".travis.yml":
+  deploy_to_forge:
+    enabled: false
   docker_sets:
   - set: docker/centos-7
   - set: docker/ubuntu-14.04
