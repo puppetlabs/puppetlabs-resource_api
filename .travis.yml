@@ -16,7 +16,7 @@ script:
   - 'SIMPLECOV=yes bundle exec rake $CHECK'
 bundler_args: --without system_tests
 rvm:
-  - 2.5.3
+  - 2.5.7
 stages:
   - static
   - spec
@@ -28,7 +28,7 @@ jobs:
       bundler_args: 
       dist: trusty
       env: PUPPET_INSTALL_TYPE=agent BEAKER_debug=true BEAKER_PUPPET_COLLECTION=puppet6 BEAKER_set=docker/centos-7 BEAKER_TESTMODE=apply
-      rvm: 2.5.3
+      rvm: 2.5.7
       script: bundle exec rake beaker
       services: docker
       stage: acceptance
@@ -37,7 +37,7 @@ jobs:
       bundler_args: 
       dist: trusty
       env: PUPPET_INSTALL_TYPE=agent BEAKER_debug=true BEAKER_PUPPET_COLLECTION=puppet6 BEAKER_set=docker/ubuntu-14.04 BEAKER_TESTMODE=apply
-      rvm: 2.5.3
+      rvm: 2.5.7
       script: bundle exec rake beaker
       services: docker
       stage: acceptance
@@ -51,7 +51,7 @@ jobs:
       stage: spec
     -
       env: PUPPET_GEM_VERSION="~> 6.0" CHECK=parallel_spec
-      rvm: 2.5.3
+      rvm: 2.5.7
       stage: spec
 branches:
   only:
