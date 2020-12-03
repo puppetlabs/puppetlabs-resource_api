@@ -30,22 +30,22 @@ There are no further specific requirements.
 
 To install dependencies of the Puppet Resource API:
 
-1. Classify or apply the `resource_api` class on each master (master of masters, and if present, compile masters and replica master) that needs to process Puppet Resource API types and providers.
+1. Classify or apply the `resource_api` class on each server (server of server, and if present, compile servers and replica server) that needs to process Puppet Resource API types and providers.
 1. Classify or apply the `resource_api` class on each puppet agent that needs to apply Puppet Resource API types and providers.
 
-To specify the version of the Puppet Resource API gem you want to install, use the `$api_version` parameter with the `resource_api::install::master` and `resource_api::install::agent` classes instead of using the `resource_api` class.
+To specify the version of the Puppet Resource API gem you want to install, use the `$api_version` parameter with the `resource_api::install::server` and `resource_api::install::agent` classes instead of using the `resource_api` class.
 
-To specify a non-default `puppetserver` service resource (if you're not using the standard service) use the `$puppetserver_service` parameter with the  `resource_api::install::master` class instead of using the `resource_api` class.
+To specify a non-default `puppetserver` service resource (if you're not using the standard service) use the `$puppetserver_service` parameter with the  `resource_api::install::server` class instead of using the `resource_api` class.
 
-Run `puppet agent -t` on the master(s) before using the Puppet Resource API on the agent(s).
+Run `puppet agent -t` on the server(s) before using the Puppet Resource API on the agent(s).
 
 ## Reference
 
-See [REFERENCE.md](https://github.com/puppetlabs/puppetlabs-resource_api/blob/master/REFERENCE.md)
+See [REFERENCE.md](https://github.com/puppetlabs/puppetlabs-resource_api/blob/main/REFERENCE.md)
 
 ## Development
 
-Execute the Puppet Strings task to generate the latest [REFERENCE.md](https://github.com/puppetlabs/puppetlabs-resource_api/blob/master/REFERENCE.md)
+Execute the Puppet Strings task to generate the latest [REFERENCE.md](https://github.com/puppetlabs/puppetlabs-resource_api/blob/main/REFERENCE.md)
 
  ``` bash
  bundle exec rake 'strings:generate[manifests/**/*.pp,,,,,REFERENCE.md,true]'

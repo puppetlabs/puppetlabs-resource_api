@@ -24,7 +24,7 @@ HOSTS:
     template: redhat-7-x86_64
     roles:
     - agent
-    - master
+    - server
     - database
     - dashboard
 CONFIG:

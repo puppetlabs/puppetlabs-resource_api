@@ -2,14 +2,14 @@
 #          and restarts the puppetserver service to activate.
 #
 # @example Declaring the class
-#   include resource_api::install::master
+#   include resource_api::install::server
 #
 # @param [String] api_version
 #   A specific release version of Resource API to install
 #
 # @param [Type[Resource]] puppetserver_service
 #   The name of the puppetserver service to restart
-class resource_api::install::master(
+class resource_api::install::server(
   String $api_version = 'latest',
   Type[Resource] $puppetserver_service = $facts['pe_server_version'] ? {
     /./     => Service['pe-puppetserver'],
