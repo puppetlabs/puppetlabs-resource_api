@@ -8,7 +8,7 @@ class resource_api::install {
   include resource_api::install::agent
 
   if $facts['puppetserver_installed'] {
-    include resource_api::install::master
+    include resource_api::install::server
   }
 
 }
@@ -16,6 +16,6 @@ class resource_api::install {
 # A proxy agent needs to be classified with this class before it can use
 # device modules that use the Resource API.
 #
-# Every master: master of masters, and if present, compile masters and replica
+# Every server: server of servers, and if present, compile servers and replica
 # needs to be classified with this class before it can compile catalogs for
 # device modules that use the Resource API.

@@ -20,7 +20,7 @@ RSpec.configure do |c|
     unless ENV['BEAKER_provision'] == 'no'
       run_puppet_install_helper
       configure_type_defaults_on(hosts)
-      install_module_on(hosts_as('master'))
+      install_module_on(hosts_as('server'))
       install_module_on(hosts_as('default'))
       install_module_dependencies_on(hosts)
     end

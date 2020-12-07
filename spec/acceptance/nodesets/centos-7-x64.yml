@@ -1,10 +1,17 @@
 HOSTS:
-  centos-7-x64:
-    roles:
-      - agent
-      - default
+  redhat7-64-1:
+    pe_dir: 
+    pe_ver: 
+    pe_upgrade_dir: 
+    pe_upgrade_ver: 
+    hypervisor: vmpooler
     platform: el-7-x86_64
-    hypervisor: vagrant
-    box: puppetlabs/centos-7.2-64-nocm
+    packaging_platform: el-7-x86_64
+    template: redhat-7-x86_64
+    roles:
+    - agent
+    - server
 CONFIG:
-  type: foss
+  nfs_server: none
+  consoleport: 443
+  pooling_api: http://vmpooler.delivery.puppetlabs.net/
